@@ -1,191 +1,32 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Anna Seligson</title>
+<html>
 
-        <!-- Bootstrap CSS -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<head>
+    <script>
+        function readTextFile(file) {
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, false);
+            rawFile.onreadystatechange = function () {
+                if (rawFile.readyState === 4) {
+                    if (rawFile.status === 200 || rawFile.status == 0) {
+                        var allText = rawFile.responseText;
+                        var lines = allText.split("\n");
+                        var videoSection = document.getElementById("videoSection");
+                        for (var i = 0; i < lines.length; i++) {
+                            if (lines[i].startsWith("https://www.youtube.com/watch?v=")) {
+                                videoSection.innerHTML += "<iframe src='" + lines[i] + "' width='420' height='315'></iframe>";
+                            }
+                        }
+                    }
+                }
+            }
+            rawFile.send(null);
+        }
+    </script>
+</head>
 
-        <!-- Style -->
-        <link rel="stylesheet" href="css/style.css">
+<body onload="readTextFile('links.txt')">
+    <div id="videoSection"></div>
+</body>
 
-        <!-- Social media -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Anna Seligson</a>
-              </div>
-              <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#campanhas">Campanhas</a></li>
-                  <li><a href="#biografia">Biografia</a></li>
-                  <li><a href="#contact">Contato</a></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-
-
-
-        </div>
-        <section class="header-site">
-            <div class='container'>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h1 class="text-center">Anna Seligson</h1>
-                        
-                        <p class="text-center">
-                            <a href="#contact" type="button" class="btn btn-success">Contatos</a>
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="campanhas" class="content-site">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h1 class="text-center">Campanhas Publicitárias</h1>
-                        <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ducimus cupiditate illum eaque sit! Illo dignissimos amet mollitia, necessitatibus quam eius sed asperiores tempore architecto voluptas, maiores ratione voluptate assumenda.</p></br>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="thumbnail">
-                            <img src="img/foto1.png" alt="">
-                            <div class="caption text-center">
-                                <h3>Lorem ipsum</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
-                            </div>
-                        </div>
-                    </div>
-                
-
-                    <div class="col-sm-4">
-                        <div class="thumbnail">
-                            <img src="img/foto2.png" alt="">
-                            <div class="caption text-center">
-                                <h3>Amet consectetur</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-sm-4">
-                        <div class="thumbnail">
-                            <img src="img/foto3.png" alt="">
-                            <div class="caption text-center">
-                                <h3>Consectetur adipisicing</h3>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <section id="biografia" class="img-site">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h1 class="text-center">Biografia</h1></br>
-                        <p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et nisi justo. Cras mollis velit sed lectus maximus consectetur. Integer lobortis ligula id dolor feugiat, sed sodales magna luctus. Etiam venenatis nunc et est consequat iaculis. Nam lacus justo, blandit sit amet augue ullamcorper, mollis cursus lacus. Praesent et sem at erat elementum consequat vel in ante. Quisque posuere elementum nunc, non tincidunt quam venenatis in. Nam sit amet enim vel elit tristique bibendum vitae in tortor. Etiam at suscipit lectus. Nam vitae mauris porta, facilisis elit pulvinar, porta leo. Morbi non mauris sed diam posuere imperdiet. Vivamus efficitur hendrerit rhoncus. Nunc tempus feugiat urna non rutrum. Nullam condimentum elit nunc, sed sollicitudin nunc dictum quis. Praesent in laoreet enim, vitae rutrum leo. </br></br>
-
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et nisi justo. Cras mollis velit sed lectus maximus consectetur. Integer lobortis ligula id dolor feugiat, sed sodales magna luctus. Etiam venenatis nunc et est consequat iaculis. Nam lacus justo, blandit sit amet augue ullamcorper, mollis cursus lacus. Praesent et sem at erat elementum consequat vel in ante. Quisque posuere elementum nunc, non tincidunt quam venenatis in. Nam sit amet enim vel elit tristique bibendum vitae in tortor. Etiam at suscipit lectus. Nam vitae mauris porta, facilisis elit pulvinar, porta leo. Morbi non mauris sed diam posuere imperdiet. Vivamus efficitur hendrerit rhoncus. Nunc tempus feugiat urna non rutrum. Nullam condimentum elit nunc, sed sollicitudin nunc dictum quis. Praesent in laoreet enim, vitae rutrum leo. </p>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="contact" class="content-contact">
-            <div class='container'>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h1 class="text-center">Contatos</h1>
-                        
-                        <p class="text-center">
-                            <a href="#" class="fa fa-facebook"></a>
-                            <a href="#" class="fa fa-twitter"></a>
-                            <a href="#" class="fa fa-instagram"></a>
-                            <a href="#" class="fa fa-pinterest"></a>
-                            <a href="#" class="fa fa-envelope"></a>						
-                        </p>
-                        
-
-                        
-                        <form>
-                            <div class="form-group">
-                              <label for="FormControlInput1">Seu E-mail</label>
-                              <input type="email" class="form-control" id="FormControlInput1" placeholder="name@example.com">
-                            </div>
-                            <div class="form-group">
-                              <label for="FormControlTextarea1">Deixe sua mensagem</label>
-                              <textarea class="form-control" id="FormControlTextarea1" rows="3"></textarea>
-                            </div>
-                          </form>
-                          
-                            <!-- Modal pequeno -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Envair</button>
-
-                            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-sm">
-                                <div class="modal-content" align="center">
-                                    <br><p style="color: black ;">Mensagem Enviada</p><br>
-                                </div>
-                            </div>
-                            </div>
-                        
-                        
-                        
-                        
-                        
-                        </div>
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        </section><br>
-        <section class="footer-site">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <p class="text-center">Todos os direitos reservados Leandro Dutra e Silva</p>
-                    </div>
-                </div>    
-            </div>
-        </section>
-
-        <!-- jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Bootstrap JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </body>
 </html>
